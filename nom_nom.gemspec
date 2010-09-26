@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
      "lib/nom_nom.rb",
      "lib/nom_nom/resource.rb",
      "lib/nom_nom/service.rb",
+     "nom_nom.gemspec",
      "spec/nom_nom_spec.rb",
      "spec/spec_helper.rb"
   ]
