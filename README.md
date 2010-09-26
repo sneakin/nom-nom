@@ -12,14 +12,17 @@ NomNom is a consumer of RESTful APIs.
 Status
 ---
 
-Currently, NomNom can only eat sugar cookie.
+Currently, NomNom can only eat sugar cookie. Only the simplest APIs
+are accessible, Twitter still bad for NomNom. NomNom no like Twitter.
 
 
 Examples
 ---
 
     require 'nom_nom'
+
     class Service < NomNom::Service
+      resources :posts
       resources :users
 
       class Post < NomNom::Resource
@@ -41,7 +44,8 @@ Examples
     end
 
 
-More for [Bitter](http://bitter.rubyforge.org/) and [Syncd](http://www.syncd.com/) can be found in `./examples`.
+More for [Bitter](http://bitter.rubyforge.org/) and [Syncd](http://www.syncd.com/) can be found in [`./examples`](http://github.com/sneakin/nom-nom/tree/master/examples/).
+
 
 License
 ===
