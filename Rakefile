@@ -47,3 +47,13 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
+
+require 'yard'
+require 'yard/rake/yardoc_task'
+
+desc 'Generate Yardoc documentation'
+YARD::Rake::YardocTask.new do |yardoc|
+  yardoc.name = 'doc'
+  yardoc.options = ['--verbose']
+  yardoc.files = [ 'lib/**/*.rb', 'examples/**/*.rb', 'LICENSE', 'README.md' ]
+end
