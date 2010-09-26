@@ -1,5 +1,11 @@
 module NomNom
-  class Resource
+  module Resource
+    def self.included(base)
+      base.class_eval do
+        extend ClassMethods
+      end
+    end
+
     attr_reader :service
 
     def initialize(service, attrs)
@@ -18,7 +24,7 @@ module NomNom
       self.id == other.id
     end
 
-    class << self
+    module ClassMethods
       def belongs_to(name, options = {})
         assoc = (options[:class_name] || name).to_s.underscore.pluralize
         key = options[:key] || "#{name}_id"

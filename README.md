@@ -21,16 +21,22 @@ Examples
 
     require 'nom_nom'
 
-    class Service < NomNom::Service
+    class Service
+      include NomNom::Service
+
       resources :posts
       resources :users
 
-      class Post < NomNom::Resource
+      class Post
+        include NomNom::Resource
+
         attr_accessor :id, :body, :user_id
         belongs_to :user
       end
 
-      class User < NomNom::Resource
+      class User
+        include NomNom::Resource
+
         attr_accessor :id, :login, :email
         has_many :posts
       end

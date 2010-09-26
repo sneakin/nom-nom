@@ -1,6 +1,11 @@
 module NomNom
-  class Service
-    include HTTParty
+  module Service
+    def self.included(base)
+      base.class_eval do
+        include HTTParty
+        extend ClassMethods
+      end
+    end
 
     attr_reader :auth, :module
 
@@ -11,12 +16,10 @@ module NomNom
     end
 
     def get(path, options = Hash.new)
-      ret = self.class.get(path, { :basic_auth => @auth }.merge(options))
-      $stderr.puts path.inspect, ret.inspect
-      ret
+      self.class.get(path, { :basic_auth => @auth }.merge(options))
     end
 
-    class << self
+    module ClassMethods
       def resources(name, options = Hash.new)
         name = name.to_s
         path = options[:path] || "/#{name}.xml"
@@ -42,7 +45,6 @@ module NomNom
 
     protected
     def get_resources(path, query, resource)
-      $stderr.puts(path.inspect)
       klass = ("#{@module}::" + resource.to_s.singularize.camelize).constantize
 
       self.
