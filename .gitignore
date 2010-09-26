@@ -1,0 +1,8 @@
+*~
+*.bak
+doc/api
+doc/spec.html
+pkg/*
+doc
+rdoc
+.yardoc
