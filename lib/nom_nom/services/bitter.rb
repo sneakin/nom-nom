@@ -4,23 +4,19 @@ class Bitter
   include NomNom::Service
 
   def initialize(url, user, pass)
-    super(url, user, pass, Bitter)
+    super(url, user, pass)
   end
 
   resources :bits
   resources :users
 
-  class Bit
+  class Bit < Struct.new(:id, :body, :user_id, :created_on, :updated_on)
     include NomNom::Resource
-
-    attr_accessor :id, :body, :user_id, :created_on, :updated_on
     belongs_to :user
   end
 
-  class User
+  class User < Struct.new(:id, :login)
     include NomNom::Resource
-
-    attr_accessor :id, :login
     has_many :bits
   end
 end

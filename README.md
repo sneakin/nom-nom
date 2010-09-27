@@ -50,7 +50,7 @@ Examples
     end
 
 
-More for [Bitter](http://bitter.rubyforge.org/) and [Syncd](http://www.syncd.com/) can be found in [`./examples`](http://github.com/sneakin/nom-nom/tree/master/examples/).
+More for [Bitter](http://bitter.rubyforge.org/) and [Syncd](http://www.syncd.com/) can be found in [`./lib/nom_nom/services`](http://github.com/sneakin/nom-nom/tree/master/lib/nom_nom/services/).
 
 
 License
